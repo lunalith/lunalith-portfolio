@@ -24,8 +24,15 @@ export const siteConfig = {
     github: "https://github.com/Lunalith",
     linkedin: "https://linkedin.com/in/alys-muni/",
   },
-  /** Placeholder: substituir por public/curriculo-alysia.pdf quando existir. */
-  resumeUrl: "/curriculo-alysia.pdf",
+  /**
+   * Caminho do PDF do currículo dentro de public/.
+   *
+   * Vazio enquanto não houver arquivo: o botão da Hero simplesmente não é
+   * renderizado, em vez de apontar para um link quebrado. Para ativar, coloque
+   * o PDF em public/ e escreva o caminho aqui — por exemplo
+   * "/curriculo-alysia-muller-germani.pdf". Nada mais precisa mudar.
+   */
+  resumeUrl: "" as string,
 } as const;
 
 export type NavItem = {
