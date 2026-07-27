@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
+/*
+ * O tema escuro é o padrão do site. As variáveis do Rosé Pine Moon ficam em
+ * :root para que o HTML servido pelo servidor já venha escuro, antes mesmo do
+ * next-themes aplicar a classe — isso evita o flash branco no primeiro paint.
+ */
+@custom-variant light (&:where(.light, .light *));
+
+/* Rosé Pine Moon — tema padrão (escuro) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --rp-base: #232136;
+  --rp-surface: #2a273f;
+  --rp-overlay: #393552;
+  --rp-text: #e0def4;
+  --rp-subtle: #908caa;
+  --rp-muted: #6e6a86;
+  --rp-iris: #c4a7e7;
+  --rp-foam: #9ccfd8;
+  --rp-gold: #f6c177;
+  --rp-love: #eb6f92;
+  --rp-pine: #3e8fb0;
+
+  /* Sombras e véus derivados — pedem opacidades diferentes em cada tema */
+  --rp-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.16), 0 8px 24px -12px rgb(0 0 0 / 0.5);
+  --rp-shadow-lift: 0 2px 4px rgb(0 0 0 / 0.2), 0 16px 32px -16px rgb(0 0 0 / 0.6);
+  --rp-veil: rgb(35 33 54 / 0.72);
+}
+
+/* Rosé Pine Dawn — contraparte clara, ativada pelo toggle */
+.light {
+  --rp-base: #faf4ed;
+  --rp-surface: #fffaf3;
+  --rp-overlay: #f2e9e1;
+  --rp-text: #575279;
+  --rp-subtle: #797593;
+  --rp-muted: #9893a5;
+  --rp-iris: #907aa9;
+  --rp-foam: #56949f;
+  --rp-gold: #ea9d34;
+  --rp-love: #b4637a;
+  --rp-pine: #286983;
+
+  --rp-shadow-soft: 0 1px 2px rgb(87 82 121 / 0.06), 0 8px 24px -12px rgb(87 82 121 / 0.18);
+  --rp-shadow-lift: 0 2px 4px rgb(87 82 121 / 0.08), 0 16px 32px -16px rgb(87 82 121 / 0.22);
+  --rp-veil: rgb(250 244 237 / 0.78);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base: var(--rp-base);
+  --color-surface: var(--rp-surface);
+  --color-overlay: var(--rp-overlay);
+  --color-text: var(--rp-text);
+  --color-subtle: var(--rp-subtle);
+  --color-muted: var(--rp-muted);
+  --color-iris: var(--rp-iris);
+  --color-foam: var(--rp-foam);
+  --color-gold: var(--rp-gold);
+  --color-love: var(--rp-love);
+  --color-pine: var(--rp-pine);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --shadow-soft: var(--rp-shadow-soft);
+  --shadow-lift: var(--rp-shadow-lift);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa a navbar fixa quando um link de âncora salta para uma seção */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--rp-base);
+    color: var(--rp-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--rp-iris);
+    color: var(--rp-base);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--rp-iris);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Cartão padrão do site: canto suave, borda discreta e sombra leve. */
+@utility surface-card {
+  background-color: var(--rp-surface);
+  border: 1px solid var(--rp-overlay);
+  border-radius: 0.75rem;
+  box-shadow: var(--rp-shadow-soft);
+}
+
+/* Fundo translúcido da navbar fixa. */
+@utility veil {
+  background-color: var(--rp-veil);
 }
