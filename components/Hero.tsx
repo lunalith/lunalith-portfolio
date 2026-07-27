@@ -29,17 +29,20 @@ export async function Hero() {
         </a>
 
         {/*
-          O PDF ainda não existe: coloque o arquivo em public/ com o nome
-          definido em siteConfig.resumeUrl para o botão passar a baixar de fato.
+          Só aparece quando existe PDF configurado. Um botão de currículo que
+          leva a 404 é pior que botão nenhum — ainda mais numa página que
+          recrutador abre.
         */}
-        <a
-          href={siteConfig.resumeUrl}
-          download
-          className="inline-flex items-center justify-center gap-2 rounded-lg border border-overlay bg-surface px-5 py-3 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
-        >
-          Baixar currículo
-          <DownloadIcon className="h-4 w-4" />
-        </a>
+        {siteConfig.resumeUrl ? (
+          <a
+            href={siteConfig.resumeUrl}
+            download
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-overlay bg-surface px-5 py-3 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+          >
+            Baixar currículo
+            <DownloadIcon className="h-4 w-4" />
+          </a>
+        ) : null}
       </div>
     </section>
   );

@@ -47,9 +47,14 @@ site usa o padrão de `lib/site.ts`.
 
 ### Pendências deixadas de propósito
 
-- **Currículo em PDF.** O botão "Baixar currículo" aponta para
-  `public/curriculo-alysia.pdf`, que ainda não existe. Coloque o arquivo com
-  esse nome em `public/` (ou mude `resumeUrl` em `lib/site.ts`).
+- **Currículo em PDF.** `resumeUrl` em `lib/site.ts` está vazio, então o botão
+  "Baixar currículo" não é renderizado. Para ativar: coloque o PDF em `public/`
+  e escreva o caminho em `resumeUrl` (ex.: `/curriculo-alysia.pdf`).
+
+  Antes de subir o arquivo, lembre que ele fica **público e permanente** — o
+  site é indexado e o repositório guarda o histórico. Currículo para publicar
+  na web não deveria trazer endereço residencial nem telefone pessoal; e-mail
+  e LinkedIn dão conta do contato.
 - **Seção de Projetos.** Está pronta e desligada. Para ativar: preencha a lista
   `projects` em `components/Projects.tsx`, descomente `<Projects />` em
   `app/(site)/page.tsx` e o item "Projetos" em `lib/site.ts`.
