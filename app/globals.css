@@ -25,6 +25,12 @@
   --rp-shadow-soft: 0 1px 2px rgb(0 0 0 / 0.16), 0 8px 24px -12px rgb(0 0 0 / 0.5);
   --rp-shadow-lift: 0 2px 4px rgb(0 0 0 / 0.2), 0 16px 32px -16px rgb(0 0 0 / 0.6);
   --rp-veil: rgb(35 33 54 / 0.72);
+
+  /* Papéis de destaque, sobrescritos em runtime pelo siteSettings.
+     Ficam fora do bloco .light de propósito: a escolha de destaque vale para
+     os dois temas, e cada token já muda de valor sozinho ao trocar de tema. */
+  --rp-accent: var(--rp-iris);
+  --rp-accent-2: var(--rp-foam);
 }
 
 /* Rosé Pine Dawn — contraparte clara, ativada pelo toggle */
@@ -47,6 +53,10 @@
 }
 
 @theme inline {
+  /* ATENÇÃO: --color-base faz `text-base` virar utilitário de COR (o fundo),
+     e não o tamanho de fonte de 1rem do Tailwind. Para texto sobre um
+     preenchimento de destaque use `text-on-accent`, definido mais abaixo;
+     para tamanho de fonte padrão, não escreva classe nenhuma. */
   --color-base: var(--rp-base);
   --color-surface: var(--rp-surface);
   --color-overlay: var(--rp-overlay);
@@ -58,6 +68,17 @@
   --color-gold: var(--rp-gold);
   --color-love: var(--rp-love);
   --color-pine: var(--rp-pine);
+
+  /* Papéis de destaque. Apontam para iris/foam por padrão, mas o documento
+     siteSettings do Sanity pode reapontá-los para outro token da paleta —
+     é o que faz o campo "Cores do tema" mexer de fato no site. */
+  --color-accent: var(--rp-accent);
+  --color-accent-2: var(--rp-accent-2);
+
+  /* Cor do texto sobre um preenchimento de destaque. É o mesmo valor de
+     --rp-base, mas com nome próprio: `text-base` colidiria com o utilitário
+     de tamanho de fonte do Tailwind e ficaria ilegível no JSX. */
+  --color-on-accent: var(--rp-base);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -83,12 +104,12 @@
   }
 
   ::selection {
-    background-color: var(--rp-iris);
+    background-color: var(--rp-accent);
     color: var(--rp-base);
   }
 
   :focus-visible {
-    outline: 2px solid var(--rp-iris);
+    outline: 2px solid var(--rp-accent);
     outline-offset: 2px;
     border-radius: 2px;
   }

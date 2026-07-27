@@ -23,7 +23,7 @@ export function Section({ id, title, children }: SectionProps) {
       >
         {title}
       </h2>
-      <div className="mt-3 h-px w-12 bg-iris" />
+      <div className="mt-3 h-px w-12 bg-accent" />
       <div className="mt-8">{children}</div>
     </section>
   );

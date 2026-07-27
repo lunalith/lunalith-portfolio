@@ -1,5 +1,6 @@
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { ThemeAccents } from "@/components/ThemeAccents";
 
 /**
  * Layout das páginas públicas.
@@ -14,6 +15,7 @@ export default function SiteLayout({
 }>) {
   return (
     <>
+      <ThemeAccents />
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-text"
