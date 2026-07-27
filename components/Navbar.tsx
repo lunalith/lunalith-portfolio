@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RabbitMark } from "@/components/RabbitMark";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { navItems, siteConfig } from "@/lib/site";
@@ -28,12 +27,10 @@ function MenuIcon({ open }: { open: boolean }) {
 }
 
 export function Navbar() {
+  // Cada link do painel mobile fecha o menu no próprio onClick — em links de
+  // âncora a rota não muda, então o painel aberto acabaria cobrindo justamente
+  // a seção que a pessoa pediu.
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
-
-  // Fecha o menu ao navegar: em links de âncora a rota não muda de página, mas
-  // o painel aberto ficaria cobrindo justamente a seção que a pessoa pediu.
-  useEffect(() => setMenuOpen(false), [pathname]);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-overlay veil backdrop-blur-md">
