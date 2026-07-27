@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 // Inter para títulos e corpo; JetBrains Mono só em detalhes pontuais
@@ -29,11 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // suppressHydrationWarning é exigido pelo next-themes: ele escreve a classe
+    // do tema no <html> antes da hidratação, divergindo do HTML do servidor.
     <html
       lang="pt-BR"
+      suppressHydrationWarning
       className={`${inter.variable} ${jetBrainsMono.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
