@@ -59,8 +59,8 @@
   --color-love: var(--rp-love);
   --color-pine: var(--rp-pine);
 
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
   --shadow-soft: var(--rp-shadow-soft);
   --shadow-lift: var(--rp-shadow-lift);
