@@ -89,22 +89,26 @@ Para o Studio funcionar, cada origem precisa estar liberada em
 - a URL de produção da Vercel
 - o domínio próprio, se houver
 
-## Subir para o GitHub
+## Fluxo de trabalho no Git
+
+O repositório é <https://github.com/lunalith/lunalith-portfolio>, com `origin`
+via SSH.
+
+Os commits seguem [Conventional Commits](https://www.conventionalcommits.org/)
+(`feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `chore:`, `test:`) e cada
+funcionalidade vive numa branch própria, que entra na `main` por Pull Request.
+A `main` fica sempre deployável.
 
 ```bash
-gh repo create lunalith-portfolio --public --source=. --remote=origin --push
+git checkout -b feature/nome-da-funcionalidade
+# ... commits pequenos e atômicos ...
+git push -u origin feature/nome-da-funcionalidade
+gh pr create --base main
+gh pr merge --merge
 ```
 
-Sem o `gh` instalado: crie o repositório vazio pela interface do GitHub e
-depois rode
-
-```bash
-git remote add origin git@github.com:Lunalith/lunalith-portfolio.git
-git push -u origin main
-```
-
-O histórico já segue Conventional Commits, com uma branch por funcionalidade
-mesclada na `main` com merge commit.
+Use `--merge` (e não squash) para preservar os commits individuais no
+histórico — é o que mostra o raciocínio passo a passo de cada mudança.
 
 ## Deploy na Vercel
 
