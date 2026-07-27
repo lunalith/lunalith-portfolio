@@ -10,7 +10,7 @@ export function Skills() {
         {skills.map((skill) => (
           <li
             key={skill}
-            className="rounded-lg border border-overlay bg-surface px-4 py-2 font-mono text-sm text-foam"
+            className="rounded-lg border border-overlay bg-surface px-4 py-2 font-mono text-sm text-accent-2"
           >
             {skill}
           </li>

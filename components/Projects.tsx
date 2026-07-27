@@ -29,7 +29,7 @@ export function Projects() {
       <ul className="grid gap-4 sm:grid-cols-2">
         {projects.map((project) => (
           <li key={project.name}>
-            <article className="surface-card group flex h-full flex-col p-6 transition-colors hover:border-iris">
+            <article className="surface-card group flex h-full flex-col p-6 transition-colors hover:border-accent">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-lg font-medium text-text">{project.name}</h3>
                 {project.href ? (
@@ -37,7 +37,7 @@ export function Projects() {
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted transition-colors hover:text-iris"
+                    className="text-muted transition-colors hover:text-accent"
                     aria-label={`Abrir ${project.name}`}
                   >
                     <ArrowUpRightIcon className="h-4 w-4" />
@@ -53,7 +53,7 @@ export function Projects() {
                 {project.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-md border border-overlay px-2 py-1 font-mono text-xs text-foam"
+                    className="rounded-md border border-overlay px-2 py-1 font-mono text-xs text-accent-2"
                   >
                     {tech}
                   </li>

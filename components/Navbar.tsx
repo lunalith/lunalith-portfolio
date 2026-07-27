@@ -40,10 +40,10 @@ export function Navbar() {
       >
         <Link
           href="/"
-          className="flex items-center gap-2 text-text transition-colors hover:text-iris"
+          className="flex items-center gap-2 text-text transition-colors hover:text-accent"
         >
-          <RabbitMark className="h-6 w-6 text-iris" />
-          <span className="text-base font-semibold tracking-tight">
+          <RabbitMark className="h-6 w-6 text-accent" />
+          <span className="font-semibold tracking-tight">
             {siteConfig.name}
           </span>
         </Link>
@@ -67,7 +67,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-overlay bg-surface text-subtle transition-colors hover:border-iris hover:text-iris md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-overlay bg-surface text-subtle transition-colors hover:border-accent hover:text-accent md:hidden"
             aria-expanded={menuOpen}
             aria-controls="menu-mobile"
             aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
