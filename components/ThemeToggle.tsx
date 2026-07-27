@@ -1,7 +1,9 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const noopSubscribe = () => () => {};
 
 const ICON_CLASS = "h-4 w-4";
 
@@ -42,12 +44,17 @@ function MoonIcon() {
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  // O tema real só é conhecido no cliente (vem do localStorage). Antes disso o
-  // botão renderiza um placeholder do mesmo tamanho, para não dar mismatch de
-  // hidratação nem mexer no layout da navbar.
-  useEffect(() => setMounted(true), []);
+  // O tema real só é conhecido no cliente (vem do localStorage). Até a
+  // hidratação terminar, o botão renderiza um placeholder do mesmo tamanho —
+  // assim não há mismatch de hidratação nem salto de layout na navbar.
+  // useSyncExternalStore devolve o snapshot do servidor (false) durante o SSR
+  // e o do cliente (true) depois, sem precisar de setState dentro de efeito.
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
 
   const isDark = resolvedTheme !== "light";
 

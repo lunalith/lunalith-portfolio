@@ -1,8 +1,22 @@
+import { About } from "@/components/About";
+import { Contact } from "@/components/Contact";
+import { Hero } from "@/components/Hero";
+import { Journey } from "@/components/Journey";
+// import { Projects } from "@/components/Projects";
+import { Skills } from "@/components/Skills";
+
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-24">
-      <h1 className="text-4xl font-semibold tracking-tight">Alysia</h1>
-      <p className="mt-4 text-subtle">Site em construção.</p>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Journey />
+      {/* Projetos: descomente o import acima e a linha abaixo quando houver
+          trabalhos para mostrar. A lista fica em components/Projects.tsx e o
+          item do menu, em lib/site.ts. */}
+      {/* <Projects /> */}
+      <Contact />
+    </>
   );
 }
