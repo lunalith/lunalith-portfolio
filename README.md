@@ -41,20 +41,18 @@ sanity/              schemas, cliente e consultas GROQ
 | Posts do blog                        | `/studio` (Sanity)                    |
 | Bio, contatos e cores de destaque    | `/studio` → Configurações do site     |
 | Paleta e tokens de design            | `app/globals.css`                     |
+| Currículo em PDF                     | `public/` + `resumeUrl` em `lib/site.ts` |
+
+Ao trocar o currículo, lembre que o arquivo fica **público e permanente** — o
+site é indexado e o repositório guarda o histórico. A versão publicada não deve
+trazer endereço residencial nem telefone pessoal; e-mail e LinkedIn dão conta
+do contato. Deixar `resumeUrl` vazio esconde o botão em vez de gerar um 404.
 
 Valores preenchidos no Sanity têm prioridade; quando um campo fica vazio, o
 site usa o padrão de `lib/site.ts`.
 
 ### Pendências deixadas de propósito
 
-- **Currículo em PDF.** `resumeUrl` em `lib/site.ts` está vazio, então o botão
-  "Baixar currículo" não é renderizado. Para ativar: coloque o PDF em `public/`
-  e escreva o caminho em `resumeUrl` (ex.: `/curriculo-alysia.pdf`).
-
-  Antes de subir o arquivo, lembre que ele fica **público e permanente** — o
-  site é indexado e o repositório guarda o histórico. Currículo para publicar
-  na web não deveria trazer endereço residencial nem telefone pessoal; e-mail
-  e LinkedIn dão conta do contato.
 - **Seção de Projetos.** Está pronta e desligada. Para ativar: preencha a lista
   `projects` em `components/Projects.tsx`, descomente `<Projects />` em
   `app/(site)/page.tsx` e o item "Projetos" em `lib/site.ts`.

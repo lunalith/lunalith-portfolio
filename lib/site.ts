@@ -27,12 +27,13 @@ export const siteConfig = {
   /**
    * Caminho do PDF do currículo dentro de public/.
    *
-   * Vazio enquanto não houver arquivo: o botão da Hero simplesmente não é
-   * renderizado, em vez de apontar para um link quebrado. Para ativar, coloque
-   * o PDF em public/ e escreva o caminho aqui — por exemplo
-   * "/curriculo-alysia-muller-germani.pdf". Nada mais precisa mudar.
+   * O nome do arquivo é o que a pessoa recebe ao baixar (o atributo `download`
+   * usa o nome servido), por isso identifica a Alysia e não só "curriculo".
+   *
+   * Deixar vazio esconde o botão da Hero — é o que evita um link quebrado
+   * enquanto não houver arquivo.
    */
-  resumeUrl: "" as string,
+  resumeUrl: "/curriculo-alysia-muller-germani.pdf" as string,
 } as const;
 
 export type NavItem = {
