@@ -1,6 +1,6 @@
 # lunalith-portfolio
 
-Site pessoal da Alysia — portfólio e blog. Next.js 16 (App Router) + TypeScript
+Site pessoal da Alysia Germani — portfólio e blog. Next.js 16 (App Router) + TypeScript
 + Tailwind CSS v4, com Sanity como CMS e Studio embutido em `/studio`.
 
 ## Rodando localmente

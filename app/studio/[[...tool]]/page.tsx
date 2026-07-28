@@ -10,7 +10,7 @@ export { viewport } from "next-sanity/studio";
 
 export const metadata: Metadata = {
   // studioMetadata traz `robots: noindex` — o painel de edição não deve ser
-  // indexado. O título entra no template do layout raiz ("%s — Alysia").
+  // indexado. O título entra no template do layout raiz ("%s — Alysia Germani").
   ...studioMetadata,
   title: "Studio",
 };

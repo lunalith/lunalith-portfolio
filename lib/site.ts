@@ -7,12 +7,12 @@
  */
 
 export const siteConfig = {
-  name: "Alysia",
+  name: "Alysia Germani",
   role: "Estudante de Ciência da Computação",
   tagline:
     "Estudante de CC apaixonada por segurança da informação, buscando unir tecnologia e proteção de dados no setor bancário",
   description:
-    "Portfólio e blog de Alysia — estudante de Ciência da Computação na Unisinos, com foco em segurança da informação, dados e desenvolvimento de IA.",
+    "Portfólio e blog de Alysia Germani — estudante de Ciência da Computação na Unisinos, com foco em segurança da informação, dados e desenvolvimento de IA.",
   /**
    * Usado para gerar URLs absolutas (Open Graph, sitemap, canonical).
    * Na Vercel, defina NEXT_PUBLIC_SITE_URL com o domínio final do projeto.

@@ -19,7 +19,7 @@ const SINGLETON_TYPES = new Set(["siteSettings"]);
 
 export default defineConfig({
   name: "default",
-  title: "Alysia",
+  title: "Alysia Germani",
   basePath: "/studio",
   projectId,
   dataset,
