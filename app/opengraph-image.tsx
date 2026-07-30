@@ -65,7 +65,7 @@ export default function OpenGraphImage() {
             color: "#908caa",
           }}
         >
-          Segurança da informação, dados e proteção no setor bancário
+          Segurança da informação e proteção de dados
         </div>
       </div>
     ),
