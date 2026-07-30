@@ -10,7 +10,7 @@ export const siteConfig = {
   name: "Alysia Germani",
   role: "Estudante de Ciência da Computação",
   tagline:
-    "Estudante de CC apaixonada por segurança da informação, buscando unir tecnologia e proteção de dados no setor bancário",
+    "Estudante de CC apaixonada por segurança da informação, buscando unir tecnologia e proteção de dados",
   description:
     "Portfólio e blog de Alysia Germani — estudante de Ciência da Computação na Unisinos, com foco em segurança da informação, dados e desenvolvimento de IA.",
   /**
